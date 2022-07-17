@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import WebFont from 'webfontloader';
+import './assets/libs/bootstrap4/bootstrap-tcl.css';
+import './assets/css/main.css';
+import Header from './Components/Header/index';
+import ArticleLatest from './Components/ArticleLatest';
+import ArticlePopular from './Components/ArticlePopular';
+import NewsList from './Components/NewsList';
+
+import Footer from './Components/Footer/index';
 
 function App() {
+  useEffect(() => {
+    document.title = 'Home Page';
+    WebFont.load({
+      google: {
+        families: ['Muli', 'Fira Sans']
+      }
+    });
+   }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper-content">
+        <Header />
+        <ArticleLatest />
+        <ArticlePopular />
+        <NewsList />
+        <Footer />
+      </div>
     </div>
   );
 }
+
+
 
 export default App;
